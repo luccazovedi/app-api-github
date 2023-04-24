@@ -117,3 +117,7 @@ Futuramente serão implementadas melhorias de recursos como:
 - Temas diferentes;
 - Mais abas de acesso;
 - Inclusão do envio de e-mails via PHP.
+
+<p align="center">
+  <img src="https://github.com/angular/angular/blob/main/aio/src/assets/images/logos/angular/angular.png?raw=true" alt="angular-logo" width="120px" height="120px"/>
+</p>
