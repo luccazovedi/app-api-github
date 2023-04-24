@@ -1,27 +1,119 @@
-# AppApiGithub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+# Aplicação Angular - API GitHub
 
-## Development server
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 15.2.6.
+## Autor
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [@luccazovedi](https://www.github.com/luccazovedi)
 
-## Code scaffolding
+## Stack utilizada
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Front-end:** Angular, Bootstrap, HTML, CSS
 
-## Build
+**Back-end:** NodeJS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Funcionalidades
 
-## Running unit tests
+- Diferentes tipos de Requisições;
+- Single Page Aplication;
+- Preview em Tempo Real;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+# Desenvolvimento da Aplicação
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Dependências
+```bash
+ npm install bootstrap
+```
+```bash
+ npm install @ocktokit/REST
+```
+```bash
+ npm install axios
+```
+```bash
+ npm install -g @angular/cli
+```
+```bash
+ npm install ngx-pagination
+```
+```bash
+ npm install rxjs
+```
 
-## Further help
+### Clone 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone o projeto para utilizar
+
+```bash
+ gh repo clone luccazovedi/app-api-github
+```
+
+### Servidor
+
+Execute `ng serve` para ativar o Servidor de Desenvolvimento. Navegue até `http://localhost:4200/`. A aplicação irá recarregar automaticamente caso haja qualquer alteração nos recursos dos arquivos. 
+
+### Code scaffolding
+
+Execute `ng generate component component-name` para gerar um novo componente. Você também pode utilize `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+### Contrução para o modo Produção
+
+Execute `ng build` para construir o prejeto. 
+O artefato será armazenado dentro do diretório `dist/`.
+
+### Testes Unitários
+
+Execute `ng test` para testes unitários via [Karma](https://karma-runner.github.io).
+
+### Testes fim-a-fim
+
+Execute `ng e2e` para executar o teste fim-a-fim via plataforma de sua escolha.
+Para usar este comando, primeiro adicione o pacote que implemente a capacidade de implementar o teste.
+
+### Ajuda
+
+Dúvidas, utilize `ng help` ou acesse [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+
+# Documentação da API
+
+#### Retorna todos os repositórios
+
+```http
+  GET https://api.github.com/repositories
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `per_page` | `integer` | **Opcional**. Define o número de repositórios por página. |
+| `since` | `integer` | **Opcional**. Retorna repositórios criados após o ID especificado. |
+
+#### Retorna um usuário especifico
+
+```http
+  GET https://api.github.com/users/{username}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `username`      | `string` | **Obrigatório**. O nome do usuário. |
+
+
+
+# Feedback
+
+Se você tiver algum feedback, por favor me contate por meio do e-mail luccazovedi@gmail.com ou através das Redes Sociais.
+
+
+## Demonstração
+
+Em breve será utilizado o Git Page para utilização pública.
+
+## Melhorias
+
+Futuramente serão implementadas melhorias de recursos como:
+- Informações mais detalhadas;
+- Temas diferentes;
+- Mais abas de acesso;
+- Inclusão do envio de e-mails via PHP.
