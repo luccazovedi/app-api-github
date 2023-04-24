@@ -1,0 +1,84 @@
+<div class="container my-5">
+  <h1 class="text-center">{{ title }}</h1>
+  <div class="search-bar">
+    <form (submit)="searchRepositories()" class="my-3">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">/</span>
+            <input
+              type="text"
+              [(ngModel)]="searchQuery"
+              name="searchQuery"
+              placeholder="Digite aqui a palavra chave:"
+              class="form-control"
+              style="font-style: italic"
+            />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="searchResults?.items?.length > 0" class="container">
+    <div class="row">
+      <div
+        *ngFor="let repo of searchResults.items | paginate: { itemsPerPage: 9, currentPage: page }"
+        class="col-md-4 mb-4"
+      >
+        <div class="card h-100">
+          <img
+            [src]="repo.owner.avatar_url"
+            alt="{{ repo.owner.login }}'s avatar"
+            class="card-img-top rounded-circle mt-3 ml-0"
+            style="max-height: 150px; max-width: 150px; margin-left: 1.2rem"
+          />
+          <div class="card-body">
+            <h3>
+              <a [href]="repo.html_url" class="card-title" target="_blank"
+                >{{ repo.name }}</a
+              >
+            </h3>
+            <p class="card-text">
+              {{ (repo.description.length > 100 ? repo.description.slice(0, 100)
+              + '...' : repo.description) }}
+            </p>
+            <hr />
+            <ul class="list-unstyled">
+              <li>
+                <strong>Tipo:</strong> {{ repo.private ? 'Private' : 'Public' }}
+              </li>
+              <li><strong>Issues:</strong> {{ repo.open_issues_count }}</li>
+              <li><strong>Estrelas:</strong> {{ repo.stargazers_count }}</li>
+              <li><strong>Forks:</strong> {{ repo.forks_count }}</li>
+              <li><strong>Linguagem:</strong> {{ repo.language }}</li>
+              <li>
+                <strong>Criado em:</strong> {{ repo.created_at | date:
+                'dd/MM/yyyy' }}
+              </li>
+              <li>
+                <strong>Última atualização:</strong> {{ repo.updated_at | date:
+                'dd/MM/yyyy' }}
+              </li>
+              <li><strong>Watchers:</strong> {{ repo.watchers_count }}</li>
+              <li><strong>Tamanho:</strong> {{ repo.size | number }} bytes</li>
+              <li>
+                <strong>Licença:</strong> {{ repo.license?.name || 'N/A' }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="pagination justify-content-center">
+      <pagination-controls
+        class="d-flex justify-content-center"
+        previousText="Anterior"
+        nextText="Próximo"
+        (pageChange)="page = $event"
+      ></pagination-controls>
+    </ul>
+  </div>
+</div>
